@@ -25,6 +25,3 @@ class MainPageLocators:
     ORDER_ID = By.XPATH, "//h2[contains(@class, 'text_type_digits') and text() != '9999']"
     # Кнопка закрытия всплывающего окна заказа
     CLOSE_ORDER_WINDOW_BUTTON = By.XPATH, "//button[contains(@class, 'close')]"
-
-
-

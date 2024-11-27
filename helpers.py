@@ -47,8 +47,9 @@ def create_new_user_and_return_user_data():
     payload = generate_full_data_for_user_creation()
     user_methods = UserMethods()
     response = user_methods.create_user(payload)
+    if response.status_code != 200:
+        response = user_methods.create_user(payload)
+    email_password["email"] = payload["email"]
+    email_password["password"] = payload["password"]
     access_token = response.json()["accessToken"]
-    if response.status_code == 200:
-        email_password["email"] = payload["email"]
-        email_password["password"] = payload["password"]
     return email_password, access_token
